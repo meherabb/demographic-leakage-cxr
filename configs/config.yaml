@@ -1,1 +1,62 @@
+# Experiment configuration
+# Mirrors the constants defined in Cell 1 of notebooks/reproducibility_notebook.ipynb.
+# This file is documentation of the exact parameters used to produce the
+# results in results/ — the notebook itself is still the executable source
+# of truth, since these values are hardcoded there as well.
 
+reproducibility:
+  seed: 42
+
+data:
+  image_size: 224
+  n_samples_per_dataset: 15000
+  datasets:
+    - name: NIH
+      kaggle_id: nih-chest-xrays/data
+      required: true
+    - name: CheXpert
+      kaggle_id: ashery/chexpert
+      required: false   # pipeline degrades gracefully (skips CheXpert-only cells) if not attached
+
+models:
+  - name: BioMedCLIP
+    pretraining: contrastive-text-supervised
+    domain: medical
+    params_millions: 195.9
+  - name: CLIP ViT-B/16
+    pretraining: contrastive-text-supervised
+    domain: natural
+    params_millions: 149.6
+  - name: CLIP ViT-B/32
+    pretraining: contrastive-text-supervised
+    domain: natural
+    params_millions: 151.3
+  - name: DINOv2-S/14
+    pretraining: self-supervised
+    domain: natural
+    params_millions: 22.1
+  - name: ResNet-50
+    pretraining: fully-supervised
+    domain: natural
+    params_millions: 23.5
+
+baselines:
+  pixel_pca_components: 64
+
+statistics:
+  n_folds: 5                  # stratified k-fold CV for all logistic-regression probes
+  n_permutations: 150         # full retrain-per-permutation significance tests
+  n_bootstrap: 1500           # bootstrap resamples for confidence intervals
+  alpha: 0.05                 # pre-correction significance threshold
+  fdr_q: 0.05                 # Benjamini-Hochberg false-discovery-rate threshold
+
+calibration:
+  ece_bins: 10                # equal-width bins for Expected Calibration Error
+
+ablation_inlp:
+  max_iterations: 8           # max linear directions removed per model
+  auroc_floor: 0.55           # stop once residual leakage AUROC reaches this
+
+robustness:
+  n_matching_seeds: 10        # seeds for prevalence-matching stability check
+  n_age_quantiles: 4          # bins for the continuous age dose-response analysis
