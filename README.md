@@ -12,6 +12,14 @@
 
 *This repository is anonymized for double-blind review. No author names, affiliations, or identifying information are included.*
 
+<br>
+
+[![H1](https://img.shields.io/badge/H1-30%2F30%20FDR--significant-success)]()
+[![H2](https://img.shields.io/badge/H2-objective%20beats%20domain-success)]()
+[![H3a](https://img.shields.io/badge/H3a-age--axis%20gap%20significant-success)]()
+[![H3b](https://img.shields.io/badge/H3b-%CF%81%20%3D%201.00-blue)]()
+[![H4](https://img.shields.io/badge/H4-88--98%25%20gap%20reduction-success)]()
+
 </div>
 
 ---
@@ -21,6 +29,7 @@
 - [TL;DR](#tldr)
 - [Key Findings](#key-findings)
 - [Sample Data](#sample-data)
+- [Pipeline Overview](#pipeline-overview)
 - [Headline Results](#headline-results)
 - [Models & Data](#models--data)
 - [Repository Structure](#repository-structure)
@@ -55,6 +64,22 @@ One row per dataset, five randomly selected patients per row, annotated with sex
 <p align="center">
   <img src="results/figures/fig0_sample_cxrs.png" alt="Sample chest radiographs with demographic and disease labels" width="90%">
 </p>
+
+## Pipeline Overview
+
+```mermaid
+flowchart LR
+    A["NIH ChestX-ray14<br/>+ CheXpert<br/>15,000 patients each"] --> B["5 Frozen Encoders<br/>BioMedCLIP · CLIP B/16 · CLIP B/32<br/>DINOv2-S/14 · ResNet-50"]
+    B --> C["H1 — Leakage Probe<br/>5-fold CV logistic regression<br/>+ permutation test + FDR"]
+    C --> D["H2 — Cross-model Comparison<br/>paired bootstrap, BioMedCLIP vs. baselines"]
+    C --> E["H3a — Calibration Gap<br/>prevalence-matched ECE"]
+    E --> F["H3b — Leakage vs. Gap<br/>Spearman correlation (exploratory)"]
+    E --> G["H4 — Causal Ablation<br/>Iterative Nullspace Projection"]
+    G --> H["88–98% calibration<br/>gap reduction"]
+
+    style H fill:#2ea44f,stroke:#1a7431,color:#fff
+    style G fill:#0969da,stroke:#0550ae,color:#fff
+```
 
 ## Headline Results
 
