@@ -1,0 +1,6 @@
+Excluded model,rho,p,n
+BioMedCLIP,1.000,0.000,4
+CLIP ViT-B/16,1.000,0.000,4
+CLIP ViT-B/32,1.000,0.000,4
+DINOv2-S/14,1.000,0.000,4
+ResNet-50,1.000,0.000,4
