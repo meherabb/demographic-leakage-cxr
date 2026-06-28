@@ -1,0 +1,49 @@
+\begin{table}[t]
+  \centering
+  \small
+  \caption{Demographic leakage AUROC across all attached datasets. Sig reflects Benjamini-Hochberg FDR correction at q=0.05 (per dataset, 15 tests each).}
+  \label{tab:leakage}
+  \begin{tabular}{lllrlrl}
+    \toprule
+    \textbf{Dataset} & \textbf{Model} & \textbf{Target} & \textbf{AUROC} & \textbf{95% CI} & \textbf{p} & \textbf{Sig} \\
+    \midrule
+    NIH & Pixel-PCA (baseline) & sex & 0.898 & [0.893,0.903] & -- & -- \\
+    NIH & Pixel-PCA (baseline) & age & 0.783 & [0.776,0.790] & -- & -- \\
+    NIH & Pixel-PCA (baseline) & disease & 0.647 & [0.637,0.656] & -- & -- \\
+    NIH & BioMedCLIP & sex & 0.899 & [0.893,0.903] & 0.0066 & FDR* \\
+    NIH & BioMedCLIP & age & 0.806 & [0.800,0.813] & 0.0066 & FDR* \\
+    NIH & BioMedCLIP & disease & 0.721 & [0.712,0.730] & 0.0066 & FDR* \\
+    NIH & CLIP ViT-B/16 & sex & 0.882 & [0.877,0.888] & 0.0066 & FDR* \\
+    NIH & CLIP ViT-B/16 & age & 0.789 & [0.781,0.795] & 0.0066 & FDR* \\
+    NIH & CLIP ViT-B/16 & disease & 0.668 & [0.658,0.678] & 0.0066 & FDR* \\
+    NIH & CLIP ViT-B/32 & sex & 0.878 & [0.873,0.883] & 0.0066 & FDR* \\
+    NIH & CLIP ViT-B/32 & age & 0.792 & [0.784,0.798] & 0.0066 & FDR* \\
+    NIH & CLIP ViT-B/32 & disease & 0.677 & [0.668,0.686] & 0.0066 & FDR* \\
+    NIH & DINOv2-S/14 & sex & 0.957 & [0.954,0.960] & 0.0066 & FDR* \\
+    NIH & DINOv2-S/14 & age & 0.862 & [0.856,0.867] & 0.0066 & FDR* \\
+    NIH & DINOv2-S/14 & disease & 0.698 & [0.689,0.707] & 0.0066 & FDR* \\
+    NIH & ResNet-50 & sex & 0.962 & [0.959,0.964] & 0.0066 & FDR* \\
+    NIH & ResNet-50 & age & 0.885 & [0.880,0.890] & 0.0066 & FDR* \\
+    NIH & ResNet-50 & disease & 0.705 & [0.696,0.714] & 0.0066 & FDR* \\
+    \addlinespace[2pt]
+    CheXpert & Pixel-PCA (baseline) & sex & 0.862 & [0.856,0.867] & -- & -- \\
+    CheXpert & Pixel-PCA (baseline) & age & 0.785 & [0.778,0.793] & -- & -- \\
+    CheXpert & Pixel-PCA (baseline) & disease & 0.774 & [0.764,0.784] & -- & -- \\
+    CheXpert & BioMedCLIP & sex & 0.857 & [0.851,0.863] & 0.0066 & FDR* \\
+    CheXpert & BioMedCLIP & age & 0.795 & [0.788,0.802] & 0.0066 & FDR* \\
+    CheXpert & BioMedCLIP & disease & 0.818 & [0.809,0.827] & 0.0066 & FDR* \\
+    CheXpert & CLIP ViT-B/16 & sex & 0.824 & [0.818,0.831] & 0.0066 & FDR* \\
+    CheXpert & CLIP ViT-B/16 & age & 0.804 & [0.798,0.811] & 0.0066 & FDR* \\
+    CheXpert & CLIP ViT-B/16 & disease & 0.758 & [0.747,0.768] & 0.0066 & FDR* \\
+    CheXpert & CLIP ViT-B/32 & sex & 0.836 & [0.830,0.842] & 0.0066 & FDR* \\
+    CheXpert & CLIP ViT-B/32 & age & 0.796 & [0.789,0.803] & 0.0066 & FDR* \\
+    CheXpert & CLIP ViT-B/32 & disease & 0.765 & [0.754,0.775] & 0.0066 & FDR* \\
+    CheXpert & DINOv2-S/14 & sex & 0.916 & [0.912,0.921] & 0.0066 & FDR* \\
+    CheXpert & DINOv2-S/14 & age & 0.856 & [0.850,0.862] & 0.0066 & FDR* \\
+    CheXpert & DINOv2-S/14 & disease & 0.804 & [0.795,0.813] & 0.0066 & FDR* \\
+    CheXpert & ResNet-50 & sex & 0.926 & [0.922,0.930] & 0.0066 & FDR* \\
+    CheXpert & ResNet-50 & age & 0.862 & [0.856,0.868] & 0.0066 & FDR* \\
+    CheXpert & ResNet-50 & disease & 0.807 & [0.798,0.816] & 0.0066 & FDR* \\
+    \bottomrule
+  \end{tabular}
+\end{table}

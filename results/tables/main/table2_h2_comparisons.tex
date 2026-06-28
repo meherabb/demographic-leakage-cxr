@@ -1,0 +1,37 @@
+\begin{table}[t]
+  \centering
+  \small
+  \caption{H2: paired-bootstrap AUROC difference, BioMedCLIP vs. natural-pretrained baselines, across all attached datasets. Sig reflects FDR correction at q=0.05 across the 8 sex/age tests per dataset; disease rows are context only.}
+  \label{tab:h2}
+  \begin{tabular}{lllrlrl}
+    \toprule
+    \textbf{Dataset} & \textbf{Target} & \textbf{Comparison} & \textbf{Delta AUROC} & \textbf{95% CI} & \textbf{p} & \textbf{Sig} \\
+    \midrule
+    NIH & sex & BioMedCLIP - CLIP ViT-B/16 & +0.016 & [+0.010,+0.022] & 0.0000 & FDR-SIG \\
+    NIH & sex & BioMedCLIP - CLIP ViT-B/32 & +0.020 & [+0.015,+0.026] & 0.0000 & FDR-SIG \\
+    NIH & sex & BioMedCLIP - DINOv2-S/14 & -0.058 & [-0.063,-0.054] & 0.0000 & FDR-SIG \\
+    NIH & sex & BioMedCLIP - ResNet-50 & -0.063 & [-0.068,-0.059] & 0.0000 & FDR-SIG \\
+    NIH & age & BioMedCLIP - CLIP ViT-B/16 & +0.018 & [+0.012,+0.025] & 0.0000 & FDR-SIG \\
+    NIH & age & BioMedCLIP - CLIP ViT-B/32 & +0.015 & [+0.008,+0.021] & 0.0000 & FDR-SIG \\
+    NIH & age & BioMedCLIP - DINOv2-S/14 & -0.055 & [-0.061,-0.049] & 0.0000 & FDR-SIG \\
+    NIH & age & BioMedCLIP - ResNet-50 & -0.079 & [-0.085,-0.073] & 0.0000 & FDR-SIG \\
+    NIH & disease & BioMedCLIP - CLIP ViT-B/16 & +0.053 & [+0.045,+0.061] & 0.0000 & context only \\
+    NIH & disease & BioMedCLIP - CLIP ViT-B/32 & +0.044 & [+0.036,+0.051] & 0.0000 & context only \\
+    NIH & disease & BioMedCLIP - DINOv2-S/14 & +0.023 & [+0.016,+0.030] & 0.0000 & context only \\
+    NIH & disease & BioMedCLIP - ResNet-50 & +0.016 & [+0.009,+0.024] & 0.0000 & context only \\
+    \addlinespace[2pt]
+    CheXpert & sex & BioMedCLIP - CLIP ViT-B/16 & +0.033 & [+0.026,+0.040] & 0.0000 & FDR-SIG \\
+    CheXpert & sex & BioMedCLIP - CLIP ViT-B/32 & +0.021 & [+0.014,+0.027] & 0.0000 & FDR-SIG \\
+    CheXpert & sex & BioMedCLIP - DINOv2-S/14 & -0.059 & [-0.065,-0.053] & 0.0000 & FDR-SIG \\
+    CheXpert & sex & BioMedCLIP - ResNet-50 & -0.069 & [-0.075,-0.063] & 0.0000 & FDR-SIG \\
+    CheXpert & age & BioMedCLIP - CLIP ViT-B/16 & -0.009 & [-0.016,-0.002] & 0.0053 & FDR-SIG \\
+    CheXpert & age & BioMedCLIP - CLIP ViT-B/32 & -0.001 & [-0.008,+0.006] & 0.8187 & ns (post-FDR) \\
+    CheXpert & age & BioMedCLIP - DINOv2-S/14 & -0.061 & [-0.067,-0.055] & 0.0000 & FDR-SIG \\
+    CheXpert & age & BioMedCLIP - ResNet-50 & -0.067 & [-0.073,-0.061] & 0.0000 & FDR-SIG \\
+    CheXpert & disease & BioMedCLIP - CLIP ViT-B/16 & +0.060 & [+0.052,+0.069] & 0.0000 & context only \\
+    CheXpert & disease & BioMedCLIP - CLIP ViT-B/32 & +0.053 & [+0.045,+0.061] & 0.0000 & context only \\
+    CheXpert & disease & BioMedCLIP - DINOv2-S/14 & +0.014 & [+0.006,+0.020] & 0.0000 & context only \\
+    CheXpert & disease & BioMedCLIP - ResNet-50 & +0.011 & [+0.004,+0.019] & 0.0013 & context only \\
+    \bottomrule
+  \end{tabular}
+\end{table}
