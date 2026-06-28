@@ -20,6 +20,7 @@
 
 - [TL;DR](#tldr)
 - [Key Findings](#key-findings)
+- [Sample Data](#sample-data)
 - [Headline Results](#headline-results)
 - [Models & Data](#models--data)
 - [Repository Structure](#repository-structure)
@@ -46,6 +47,14 @@ Frozen chest X-ray embeddings from five pretrained foundation models leak patien
 | **H4** | Causal ablation | Removing the age-decoding direction reduces the calibration gap | 88.5–97.8% gap reduction across all five models; residual leakage AUROC drops to ≈0.53–0.54 |
 
 Full statistical setup, formal hypotheses, and discussion are in the paper (see [`paper/`](paper/)).
+
+## Sample Data
+
+One row per dataset, five randomly selected patients per row, annotated with sex / age-group / disease-status labels — illustrating the two independent hospital sources used throughout this work.
+
+<p align="center">
+  <img src="results/figures/fig0_sample_cxrs.png" alt="Sample chest radiographs with demographic and disease labels" width="90%">
+</p>
 
 ## Headline Results
 
